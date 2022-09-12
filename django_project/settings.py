@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "drf_spectacular",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -147,6 +148,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",  # For browsable api login/logout.
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -160,3 +162,12 @@ CSRF_TRUSTED_ORIGINS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SITE_ID = 1
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Blog API',
+    'DESCRIPTION': 'A sample blog to learn about DRF',
+    'VERSION': '1.0.0',
+    # 'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
